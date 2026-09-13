@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F6F5">
+
+    <!-- ══ Header ══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0f7a5a"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🇧🇩  Embassy Monitor"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvMonitorStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏳ চালু হচ্ছে..."
+                android:textColor="#A8D5C8"
+                android:textSize="11sp"
+                android:layout_marginTop="3dp"/>
+        </LinearLayout>
+
+        <!-- Update badge -->
+        <ImageView
+            android:id="@+id/ivUpdateBadge"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@android:drawable/ic_menu_upload"
+            android:tint="#FFD600"
+            android:padding="6dp"
+            android:visibility="gone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Update available"/>
+
+        <!-- Settings gear -->
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:tint="#FFFFFF"
+            android:padding="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Settings"/>
+    </LinearLayout>
+
+    <!-- ══ Content area (3 screens) ══ -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ─── Dashboard screen ─── -->
+        <ScrollView
+            android:id="@+id/screenDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Last check info -->
+                <TextView
+                    android:id="@+id/tvLastCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="শেষ চেক: লোড হচ্ছে..."
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="4dp"
+                    android:paddingBottom="6dp"/>
+
+                <!-- Services card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="12dp"
+                            android:gravity="center_vertical"
+                            android:background="#F8FAF9">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="পরিচিত সেবা"
+                                android:textColor="#0f7a5a"
+                                android:textSize="13sp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/tvServiceCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#888888"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                            android:background="#EEEEEE"/>
+                        <TextView
+                            android:id="@+id/tvServiceList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp"
+                            android:text="লোড হচ্ছে..."
+                            android:textSize="13sp"
+                            android:textColor="#333333"
+                            android:lineSpacingMultiplier="1.7"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Action buttons -->
+                <Button
+                    android:id="@+id/btnCheckNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="🔄  এখনই চেক করুন"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#0f7a5a"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="8dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnOpenSite"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="🔗 বুকিং সাইট"
+                        android:textSize="12sp"
+                        android:backgroundTint="#1565C0"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="6dp"/>
+                    <Button
+                        android:id="@+id/btnBattery"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="⚡ ব্যাটারি"
+                        android:textSize="12sp"
+                        android:backgroundTint="#E65100"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ─── Predictions screen ─── -->
+        <ScrollView
+            android:id="@+id/screenPredictions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Info card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔮  পূর্বাভাস (Prediction)"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#0f7a5a"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:id="@+id/tvCurrentIds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textSize="12sp"
+                            android:fontFamily="monospace"
+                            android:textColor="#0f7a5a"
+                            android:background="#E8F5E9"
+                            android:padding="8dp"
+                            android:layout_marginBottom="8dp"/>
+                        <TextView
+                            android:id="@+id/tvPredictionInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="লোড হচ্ছে..."
+                            android:textSize="13sp"
+                            android:textColor="#444444"
+                            android:lineSpacingMultiplier="1.6"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Prediction list card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="2dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="সম্ভাব্য পরবর্তী Service IDs"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#0f7a5a"
+                            android:padding="12dp"
+                            android:background="#F8FAF9"/>
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                            android:background="#EEEEEE"/>
+                        <LinearLayout
+                            android:id="@+id/predictionListContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ─── History screen ─── -->
+        <LinearLayout
+            android:id="@+id/screenHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📋  পরিবর্তনের ইতিহাস"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#0f7a5a"/>
+                <Button
+                    android:id="@+id/btnClearHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="মুছুন"
+                    android:textSize="12sp"
+                    android:backgroundTint="#FFCDD2"
+                    android:textColor="#C62828"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:id="@+id/historyContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    android:paddingBottom="10dp"/>
+            </ScrollView>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- ══ Bottom Navigation ══ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/nav_selector"
+        app:itemTextColor="@color/nav_selector"/>
+
+</LinearLayout>

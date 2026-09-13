@@ -1,0 +1,6 @@
+{
+  "version_code": 1,
+  "version_name": "v1",
+  "apk_url": "https://github.com/MdHabibulBasher/embassy-monitor/releases/latest/download/embassy-monitor-v1.apk",
+  "release_notes": "Initial release — JSON monitoring, predictions, history, in-app update"
+}

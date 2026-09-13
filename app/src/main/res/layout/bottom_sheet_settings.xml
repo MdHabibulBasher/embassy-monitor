@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingBottom="28dp">
+
+        <!-- Handle -->
+        <View android:layout_width="40dp" android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp" android:layout_marginBottom="4dp"
+            android:background="#CCCCCC"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="⚙️  সেটিংস"
+            android:textSize="17sp" android:textStyle="bold" android:textColor="#0f7a5a"
+            android:paddingHorizontal="20dp" android:paddingTop="8dp" android:paddingBottom="10dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE"/>
+
+        <!-- Interval -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="চেক ইন্টারভাল"
+            android:textSize="11sp" android:textAllCaps="true" android:textColor="#888888"
+            android:paddingHorizontal="20dp" android:paddingTop="14dp" android:paddingBottom="6dp"/>
+
+        <RadioGroup android:id="@+id/rgInterval"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp">
+            <RadioButton android:id="@+id/rb5min" android:layout_width="match_parent"
+                android:layout_height="46dp" android:text="⚡  ৫ মিনিট (সবচেয়ে দ্রুত)"
+                android:textSize="14sp" android:paddingStart="8dp" android:buttonTint="#0f7a5a"/>
+            <RadioButton android:id="@+id/rb10min" android:layout_width="match_parent"
+                android:layout_height="46dp" android:text="🕐  ১০ মিনিট"
+                android:textSize="14sp" android:paddingStart="8dp" android:buttonTint="#0f7a5a"/>
+            <RadioButton android:id="@+id/rb15min" android:layout_width="match_parent"
+                android:layout_height="46dp" android:text="🕐  ১৫ মিনিট"
+                android:textSize="14sp" android:paddingStart="8dp" android:buttonTint="#0f7a5a"/>
+            <RadioButton android:id="@+id/rb30min" android:layout_width="match_parent"
+                android:layout_height="46dp" android:text="🔋  ৩০ মিনিট (ব্যাটারি সাশ্রয়ী)"
+                android:textSize="14sp" android:paddingStart="8dp" android:buttonTint="#0f7a5a"/>
+        </RadioGroup>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#EEEEEE" android:layout_marginTop="6dp"/>
+
+        <!-- Notification settings -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="নোটিফিকেশন"
+            android:textSize="11sp" android:textAllCaps="true" android:textColor="#888888"
+            android:paddingHorizontal="20dp" android:paddingTop="12dp" android:paddingBottom="4dp"/>
+
+        <!-- Sound -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔊  Alarm Sound" android:textSize="14sp" android:textColor="#222222"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="নতুন service যোগ হলে alarm বাজবে" android:textSize="11sp" android:textColor="#888888"/>
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/swSound"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:thumbTint="#0f7a5a" app:trackTint="#A8D5C8"/>
+        </LinearLayout>
+
+        <!-- Vibration -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📳  Vibration" android:textSize="14sp" android:textColor="#222222"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="নোটিফিকেশনে phone কাঁপবে" android:textSize="11sp" android:textColor="#888888"/>
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/swVibration"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:thumbTint="#0f7a5a" app:trackTint="#A8D5C8"/>
+        </LinearLayout>
+
+        <!-- Notify on changed -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⚠️  সেবা পরিবর্তিত হলে" android:textSize="14sp" android:textColor="#222222"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="নাম বা ব্যাংক বদলালে notify করবে" android:textSize="11sp" android:textColor="#888888"/>
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/swNotifyChanged"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:thumbTint="#0f7a5a" app:trackTint="#A8D5C8"/>
+        </LinearLayout>
+
+        <!-- Notify on removed -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="54dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🗑️  সেবা সরালে" android:textSize="14sp" android:textColor="#222222"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="কোনো service বন্ধ হলে notify করবে" android:textSize="11sp" android:textColor="#888888"/>
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/swNotifyRemoved"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:thumbTint="#0f7a5a" app:trackTint="#A8D5C8"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#EEEEEE"/>
+
+        <!-- App version + update -->
+        <TextView android:id="@+id/tvAppVersion"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Embassy Monitor"
+            android:textSize="12sp" android:textColor="#AAAAAA"
+            android:paddingHorizontal="20dp" android:paddingTop="12dp" android:paddingBottom="4dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingHorizontal="16dp" android:paddingTop="8dp">
+
+            <Button android:id="@+id/btnCheckUpdate"
+                android:layout_width="match_parent" android:layout_height="46dp"
+                android:text="🔄  আপডেট চেক করুন"
+                android:textSize="13sp" android:backgroundTint="#455A64" android:textColor="#FFFFFF"
+                android:layout_marginBottom="8dp"/>
+
+            <Button android:id="@+id/btnTestNotif"
+                android:layout_width="match_parent" android:layout_height="46dp"
+                android:text="🔔  টেস্ট নোটিফিকেশন"
+                android:textSize="13sp" android:backgroundTint="#37474F" android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <Button android:id="@+id/btnSaveSettings"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:text="💾  সেটিংস সেভ করুন"
+                android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="#0f7a5a" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

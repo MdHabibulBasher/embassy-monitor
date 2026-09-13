@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.habibul.embassymonitor'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.habibul.embassymonitor"
+        minSdk 26
+        targetSdk 34
+        // VERSION_CODE injected by GitHub Actions (run number); default 1 locally
+        def vc = System.getenv("VERSION_CODE")
+        versionCode vc ? vc.toInteger() : 1
+        versionName "3.${versionCode}"
+    }
+
+    buildTypes {
+        debug   { debuggable true }
+        release { minifyEnabled false }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions   { jvmTarget = '17' }
+    buildFeatures   { viewBinding true; buildConfig true }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.work:work-runtime-ktx:2.9.1'
+    implementation 'org.jsoup:jsoup:1.18.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+}
