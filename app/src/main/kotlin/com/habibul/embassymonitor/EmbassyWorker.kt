@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.work.*
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import org.json.JSONArray
 import java.security.MessageDigest
 import java.util.concurrent.TimeUnit
@@ -93,9 +94,10 @@ class EmbassyWorker(
         Log.w(TAG, "JS variable not found — using dropdown fallback")
         val soup = Jsoup.parse(html)
         for (sel in soup.select("select")) {
-            val opts = sel.select("option").map { it.text().trim() }
+            val options: List<Element> = sel.select("option")
+            val opts = options.map { it.text().trim() }
             if (opts.any { "পাসপোর্ট" in it }) {
-                return sel.select("option")
+                return options
                     .filter { it.attr("value").isNotBlank() && "নির্বাচন করুন" !in it.text() }
                     .mapNotNull { o ->
                         val id = o.attr("value").toIntOrNull() ?: return@mapNotNull null

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/navDashboard"
-        android:title="Dashboard"
+        android:title="হোম"
         android:icon="@android:drawable/ic_menu_info_details"/>
     <item android:id="@+id/navPredictions"
         android:title="পূর্বাভাস"
@@ -9,4 +9,7 @@
     <item android:id="@+id/navHistory"
         android:title="ইতিহাস"
         android:icon="@android:drawable/ic_menu_recent_history"/>
+    <item android:id="@+id/navBooking"
+        android:title="বুকিং"
+        android:icon="@android:drawable/ic_menu_send"/>
 </menu>
